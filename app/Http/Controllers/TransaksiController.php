@@ -33,12 +33,9 @@ class TransaksiController extends Controller
         ]);
 
         
-        //dd($validated_data['sapi_id']);
         Transaksi::create($validated_data);
 
         $data = Transaksi::firstWhere('sapi_id', $validated_data['sapi_id']);
-        //dd($data->id);
-        //Sapi::where('id', $data->id_sapi)->update(['trans_id' => $data->id]);
 
         $sapi = Sapi::find($data->sapi_id);
  
