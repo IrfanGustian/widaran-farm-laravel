@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminTransController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SapiController;
@@ -31,6 +32,10 @@ Route::get('/pembayaran/{sapi:slug}', [SapiController::class, 'show']);
 
 Route::post('/pembayaran/{sapi:slug}', [TransaksiController::class, 'store']);
 
+//halaman  bantuan
+Route::get('/success', function () {
+    return view('success');
+});
 
 //halaman  bantuan
 Route::get('/bantuan', function () {
@@ -60,15 +65,11 @@ Route::get('/admin', function () {
 })->middleware('auth');
 
 
-
-Route::get('/admin-orders', [TransaksiController::class, 'index'])->middleware('auth');
-
 //halaman  blog
-Route::get('/admin-blog', function () {
+Route::get('/admin/blog', function () {
     return view('admin/blogs');
 })->middleware('auth');
 
-Route::get('/admin-data_sapi', function () {
-    return view('admin/data_sapi');
-})->middleware('auth');
+
+Route::resource('/admin/transaksi', AdminTransController::class)->middleware('auth');
 

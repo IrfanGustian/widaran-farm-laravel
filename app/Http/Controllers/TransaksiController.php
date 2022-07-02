@@ -8,11 +8,11 @@ use App\Models\Transaksi;
 
 class TransaksiController extends Controller
 {
-    public function index(){
-        return view('admin\orders', [
-            "data_trans" => Transaksi::all()
-        ]);
-    }
+    // public function index(){
+    //     return view('admin.orders', [
+    //         "data_trans" => Transaksi::all()
+    //     ]);
+    // }
 
     public function store(Request $request){
 
@@ -42,6 +42,8 @@ class TransaksiController extends Controller
         $sapi->trans_id = $data->id;
         
         $sapi->save();
+
+        return redirect("/success");
         
     }
 

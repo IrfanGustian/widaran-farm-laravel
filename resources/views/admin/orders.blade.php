@@ -37,9 +37,26 @@
                                         <td><span class="detail">{{ $trans->sapi->nama_sapi }}</span></td>
                                         <td><span class="detail">{{ $trans->status }}</span></td>
                                         <td>
-                                            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#btnModal">
-                                                <img src="img/admin/Frame.png" alt="">
-                                            </button>
+
+                                            @if ($trans->status !== "GAGAL")
+                                                <form action="/admin/transaksi/{{ $trans->id }}" method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('put')
+                                                    @if ($trans->status === "DIPROSES")
+                                                        <button type="submit" name="status" class="badge bg-success border-0" value="SELESAI"><span>SELESAI</span></button>
+                                                        <button type="submit" name="status" class="badge bg-warning border-0" value="GAGAL"><span>GAGAL</span></button>
+                                                    @endif
+                                                </form>
+                                            @endif
+
+                                            @if ($trans->status !== "DIPROSES")
+                                                <form action="/admin/transaksi/{{ $trans->id }}" method="post" class="d-inline">
+                                                    
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button class="badge bg-danger border-0"><span>Hapus</span></button>
+                                                </form>
+                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach
@@ -49,39 +66,6 @@
                     </div>
                 </div>
 
-            </div>
-
-            <div class="modal fade" id="btnModal" tabindex="-1" role="dialog" aria-labelledby="btnModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticModalLabel">Opsi Data Transaksi</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- AREA FORM UPLOAD -->
-                            <form action="#">
-            
-                                <div class="row mt-4 mb-5">
-                                    <div class="col">
-                                        <label class="form-label">Ubah status pemesanan</label><br>
-                                        <button class="btn btn-success" type="submit">Selesai</button>
-                                        <button class="btn btn-danger" type="submit">Gagal</button>
-                                    </div>
-                                </div>
-
-                                <div class="row mt-4 mb-5">
-                                    <div class="col">
-                                        <label class="form-label">Hapus Data</label><br>
-                                        <button class="btn btn-danger" type="submit">Delete</button>
-                                    </div>
-                                </div>
-                            </form>
-                       </div>
-                    </div>
-                </div>
             </div>
 
 
