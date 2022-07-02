@@ -63,6 +63,12 @@ Route::get('/admin', function () {
 
 Route::get('/admin-orders', [TransaksiController::class, 'index'])->middleware('auth');
 
+//halaman  blog
 Route::get('/admin-blog', function () {
     return view('admin/blogs');
 })->middleware('auth');
+
+Route::get('/admin-data_sapi', function () {
+    return view('admin/data_sapi');
+})->middleware('auth');
+
