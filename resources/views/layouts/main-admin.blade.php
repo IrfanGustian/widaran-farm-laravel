@@ -83,11 +83,11 @@
                         <a href="/admin/transaksi"> <i class="menu-icon fa fa-list"></i>Transaksi</a>
                     </li>
                     <li class="">
-                        <a href="/admin/datasapi"> <i class="menu-icon fa fa-list"></i>Data Sapi</a>
+                        <a href="/admin/sapi"> <i class="menu-icon fa fa-list"></i>Data Sapi</a>
                     </li>
 
                     <li class="">
-                        <a href="#"> <i class="menu-icon fa fa-list"></i>Uploads</a>
+                        <a href="/admin/sapi/create"> <i class="menu-icon fa fa-list"></i>Uploads</a>
                     </li>
                     <li class="">
                         <a href="#"> <i class="menu-icon fa fa-list"></i>Testimonial</a>

@@ -59,7 +59,7 @@
 
 
                                     <div class="pi-pic">
-                                        <img src="img/products/{{ $sapi->img }}" alt="" />
+                                        <img src="{{ asset('storage/'. $sapi->img) }}" alt="" />
                                     </div>
                                     <div class="pi-text">
                                         <a href="#">

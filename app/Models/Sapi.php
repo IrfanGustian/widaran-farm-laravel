@@ -11,7 +11,7 @@ class Sapi extends Model
 
     protected $guarded = ['id'];
 
-    function trans(){
-        return $this->belongsTo(Transaksi::class);
+    function transaksi(){
+        return $this->hasMany(Transaksi::class);
     }
 }

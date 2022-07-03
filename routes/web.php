@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\AdminTransController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminSapiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SapiController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TransaksiController;
+use App\Models\Sapi;
+use App\Models\Transaksi;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -61,7 +63,12 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 //bagian dashboard admin
 Route::get('/admin', function () {
-    return view('admin/index');
+    return view('admin/index', [
+        'product' => Sapi::all()->count(),
+        'order' => Transaksi::where('status', 'DIPROSES')->count(),
+        'sales' => Transaksi::where('status', 'SELESAI')->count()
+    ]);
+    
 })->middleware('auth');
 
 
@@ -70,6 +77,9 @@ Route::get('/admin/blog', function () {
     return view('admin/blogs');
 })->middleware('auth');
 
-
+#dashboard transaksi admin 
 Route::resource('/admin/transaksi', AdminTransController::class)->middleware('auth');
+
+#dashboard transaksi admin 
+Route::resource('/admin/sapi', AdminSapiController::class)->middleware('auth');
 

@@ -32,7 +32,7 @@
                             </div>
 
                             <div class="h4 mb-0 text-center">
-                                <span class="count">420</span>
+                                <span class="count">{{ $product }}</span>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
                                 <img src="images/Frame.png" alt="" srcset="">
                             </div>
                             <div class="h4 mb-0 text-center">
-                                <span class="count">69</span>
+                                <span class="count">{{ $order }}</span>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                                 <img src="images/Frame.png" alt="" srcset="">
                             </div>
                             <div class="h4 mb-0 text-center">
-                                <span class="count">666</span>
+                                <span class="count">{{ $sales }}</span>
                             </div>
                         </div>
                     </div>
