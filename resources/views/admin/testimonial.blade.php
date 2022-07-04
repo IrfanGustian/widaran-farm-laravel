@@ -22,8 +22,7 @@
                                 <div class="card-body">
 
                                     @foreach ($data_testi as $testi)
-                                        
-                                        <!-- Button trigger modal -->
+                                    <!-- Button trigger modal -->
                                     <button type="button" class="btn btn-secondary pt-5" data-toggle="modal" data-target="#scrollmodal{{ $loop->iteration }}">
                                         {{ $testi->nama }} <br>  {{ $testi->pekerjaan }}
                                         <img src="/img/admin/link.png" alt="" srcset="">

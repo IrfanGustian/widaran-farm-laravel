@@ -131,22 +131,24 @@
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <!-- Carousel -->
                     <div class="carousel-inner">
-                        <div class="item carousel-item active">
-                            <div class="img-box"><img src="img/orang2.png" alt=""></div>
-                            <p class="testimonial"> “is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type “
-                            </p>
-                            <p class="overview"><b>Joseph</b>, Office Worker</p>
-                        </div>
-                        <div class="item carousel-item">
-                            <div class="img-box"><img src="img/orang1.png" alt=""></div>
-                            <p class="testimonial">Vestibulum quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Utmtc tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio.</p>
-                            <p class="overview"><b>Dauglas McNun</b>, Financial Advisor</p>
-                        </div>
-                        <div class="item carousel-item">
-                            <div class="img-box"><img src="img/orang3.png" alt=""></div>
-                            <p class="testimonial">Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia. Etiam faucibus mauris id tempor egestas. Duis luctus turpis at accumsan tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt fringilla massa. Etiam hendrerit dolor eget rutrum.</p>
-                            <p class="overview"><b>Hellen Wright</b>, Athelete</p>
-                        </div>
+                        @foreach ($data_testi as $item)   
+
+                                @if ($loop->iteration == 1)
+                                    <div class="item carousel-item active">
+                                        <div class="img-box"><img src="{{ asset("storage/" . $item->img) }}" alt=""></div>
+                                        <p class="testimonial"> “{{ $item->deskripsi }} “
+                                        </p>
+                                        <p class="overview"><b>{{ $item->nama }}</b>, {{ $item->pekerjaan }}</p>
+                                    </div>
+                                @else
+                                    <div class="item carousel-item">
+                                        <div class="img-box"><img src="{{ asset("storage/" . $item->img) }}" alt=""></div>
+                                        <p class="testimonial"> “{{ $item->deskripsi }} “
+                                        </p>
+                                        <p class="overview"><b>{{ $item->nama }}</b>, {{ $item->pekerjaan }}</p>
+                                    </div>
+                                @endif
+                            @endforeach
                     </div>
                     <!-- Carousel Controls -->
                     <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">

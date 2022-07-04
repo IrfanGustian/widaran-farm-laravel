@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminTestimoniController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SapiController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\TransaksiController;
 use App\Models\Sapi;
 use App\Models\Transaksi;
@@ -23,9 +24,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 //halaman Index
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [TestimoniController::class, 'utama']);
 
 //halaman daftar sapi
 Route::get('/daftarsapi', [SapiController::class, 'index']);
@@ -45,10 +44,7 @@ Route::get('/bantuan', function () {
     return view('bantuan');
 });
 
-//halaman  testimoni
-Route::get('/testimoni', function () {
-    return view('testimoni');
-});
+Route::get('/testimoni', [TestimoniController::class, 'index']);
 
 //halaman  tentang
 Route::get('/tentang', function () {

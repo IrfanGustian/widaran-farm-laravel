@@ -4,37 +4,45 @@
 
     <!-- Testimonial -->
     <div class="container">
-    <div class="row">
-        <div class="testimoni-list">
-            <ul>
-                <div class="row">
-                    <h2>
-                        TESTIMONIAL
-                    </h2>
-                    <div class="row">
-                        <div class="col-3">
-                            <img class="mt-5 mb-5" src="img/orang2.png" alt="">
+        <!-- Testimoni -->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-8 col-center m-auto">
+                    <h2>Testimonials</h2>
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Carousel -->
+                        <div class="carousel-inner">
+
+                            @foreach ($data_testi as $item)   
+
+                                @if ($loop->iteration == 1)
+                                    <div class="item carousel-item active">
+                                        <div class="img-box"><img src="{{ asset("storage/" . $item->img) }}" alt=""></div>
+                                        <p class="testimonial"> “{{ $item->deskripsi }} “
+                                        </p>
+                                        <p class="overview"><b>{{ $item->nama }}</b>, {{ $item->pekerjaan }}</p>
+                                    </div>
+                                @else
+                                    <div class="item carousel-item">
+                                        <div class="img-box"><img src="{{ asset("storage/" . $item->img) }}" alt=""></div>
+                                        <p class="testimonial"> “{{ $item->deskripsi }} “
+                                        </p>
+                                        <p class="overview"><b>{{ $item->nama }}</b>, {{ $item->pekerjaan }}</p>
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
-                        <div class="col-8 mt-5">
-                            <h4>Joseph anton yudana </h5>
-                            <h5>cv. maju jaya tekstile</h6>
-                            <h6 class="mt-3"> “is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type “</h6>
-                        </div>  
+                        <!-- Carousel Controls -->
+                        <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
                     </div>
-                    <div class="row">
-                        <div class="col-3">
-                            <img class="mt-5 mb-5" src="img/orang2.png" alt="">
-                        </div>
-                        <div class="col-8 mt-5">
-                            <h4>Joseph anton yudana </h5>
-                            <h5>cv. maju jaya tekstile</h6>
-                            <h6 class="mt-3"> “is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type “</h6>
-                        </div>  
-                    </div>                                                                                                                                                              
-                </div>                                                                           
-            </ul>
+                </div>
+            </div>
         </div>
-    </div>
     </div>    
         <!-- Testimonial End -->
 @endsection
