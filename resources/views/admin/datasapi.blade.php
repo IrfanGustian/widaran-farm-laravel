@@ -57,7 +57,7 @@
                                                     </form>
                                                 @endif
                                             @else
-                                                <a class="badge bg-success border-0" href="">EDIT</a>
+                                                <a class="badge bg-success border-0" href="/admin/sapi/{{ $sapis->id }}/edit">EDIT</a>
                                                 <form action="/admin/sapi/{{ $sapis->id }}" method="post" class="d-inline">
                                                     @method('delete')
                                                     @csrf

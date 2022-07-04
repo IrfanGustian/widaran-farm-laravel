@@ -85,16 +85,11 @@
                     <li class="">
                         <a href="/admin/sapi"> <i class="menu-icon fa fa-list"></i>Data Sapi</a>
                     </li>
-
                     <li class="">
                         <a href="/admin/sapi/create"> <i class="menu-icon fa fa-list"></i>Uploads</a>
                     </li>
                     <li class="">
-                        <a href="#"> <i class="menu-icon fa fa-list"></i>Testimonial</a>
-                    </li>
-
-                    <li class="">
-                        <a href="#"> <i class="menu-icon fa fa-list"></i>FAQ</a>
+                        <a href="/admin/testimoni"> <i class="menu-icon fa fa-list"></i>Testimoni</a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

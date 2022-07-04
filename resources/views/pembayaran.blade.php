@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row">           
         <div class="col-4 mr-5">
-            <img src="/img/products/{{ $data_sapi->img }}" alt="" srcset="">
+            <img src="{{ asset('storage/'. $data_sapi->img) }}" class="img-fluid d-block mb-5 col-sm-20">
         </div>
         <div class="col-7 ml-5">
             <div class="user-checkout">
@@ -36,7 +36,7 @@
                         </div>
                         <div class="col">
                             <label for="notelp">No-Telp</label>
-                            <input type="text" class="form-control" id="no_hp" name="no_hp" aria-describedby="noHPHelp" placeholder="Masukan No. HP" required>
+                            <input type="number" class="form-control" id="no_hp" name="no_hp" aria-describedby="noHPHelp" placeholder="Masukan No. HP" required>
                         </div>
                       </div>
                       <h5 class="font-weight-bold mb-3 mt-5">ALAMAT PENGIRIMAN</h4>
@@ -59,7 +59,7 @@
                             </div>
                             <div class="col">
                                 <label for="kodepos">Kode Pos</label>
-                                <input type="text" class="form-control" id="kode_pos" name="kode_pos" aria-describedby="kodeposHelp" placeholder="Masukan kodepos" required>
+                                <input type="number" class="form-control" id="kode_pos" name="kode_pos" aria-describedby="kodeposHelp" placeholder="Masukan kodepos" required>
                             </div>
                         </div>
 

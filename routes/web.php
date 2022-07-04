@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminTransController;
 use App\Http\Controllers\AdminSapiController;
+use App\Http\Controllers\AdminTestimoniController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SapiController;
 use App\Http\Controllers\LoginController;
@@ -80,6 +81,9 @@ Route::get('/admin/blog', function () {
 #dashboard transaksi admin 
 Route::resource('/admin/transaksi', AdminTransController::class)->middleware('auth');
 
-#dashboard transaksi admin 
+#dashboard sapi admin 
 Route::resource('/admin/sapi', AdminSapiController::class)->middleware('auth');
+
+#dashboard testimoni admin 
+Route::resource('/admin/testimoni', AdminTestimoniController::class)->middleware('auth');
 

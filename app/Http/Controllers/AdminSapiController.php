@@ -71,7 +71,10 @@ class AdminSapiController extends Controller
      */
     public function edit(Sapi $sapi)
     {
-        //
+        //dd($sapi);
+        return view('admin.editdatasapi', [
+            "data_sapis" => $sapi
+        ]);
     }
 
     /**
@@ -83,7 +86,20 @@ class AdminSapiController extends Controller
      */
     public function update(Request $request, Sapi $sapi)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_sapi' => 'required|max:255',
+            'harga' => 'required',
+            'deskripsi' => 'required',
+            'img' => 'image|file|max:1024'
+        ]);
+
+        if ($request->file('img')) {
+            $validatedData['img'] = $request->file('img')->store('sapi-images');
+        }
+
+        Sapi::where('id', $sapi->id)
+            ->update($validatedData);
+        return redirect('/admin/sapi')->with('success', 'Data Sapi Berhasil Diubah');
     }
 
     /**
