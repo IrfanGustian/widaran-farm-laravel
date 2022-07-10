@@ -49,7 +49,6 @@
                         <ul class="nav-right">
                             <a href="/">HOME</a>
                             <a href="/daftarsapi">DAFTAR SAPI</a>
-                            <a href="/carapesan">CARA PESAN</a>
                             <a href="/testimoni">TESTIMONI</a>
                             <a href="/tentang">TENTANG</a>
                             <a href="/bantuan">BANTUAN</a>

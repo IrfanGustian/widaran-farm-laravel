@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Pertanyaan;
 use App\Models\Sapi;
 use App\Models\Testimoni;
 use App\Models\User;
@@ -21,5 +22,6 @@ class DatabaseSeeder extends Seeder
         User::factory(1)->create();
         Sapi::factory(10)->create();
         Testimoni::factory(3)->create();
+        Pertanyaan::factory(7)->create();
     }
 }

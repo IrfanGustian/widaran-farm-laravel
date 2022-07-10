@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\AdminPertanyaanController;
 use App\Http\Controllers\AdminTransController;
 use App\Http\Controllers\AdminSapiController;
 use App\Http\Controllers\AdminTestimoniController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SapiController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PertanyaanController;
 use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\TransaksiController;
 use App\Models\Sapi;
@@ -39,10 +41,9 @@ Route::get('/success', function () {
     return view('success');
 });
 
+
 //halaman  bantuan
-Route::get('/bantuan', function () {
-    return view('bantuan');
-});
+Route::get('/bantuan', [PertanyaanController::class, 'index']);
 
 Route::get('/testimoni', [TestimoniController::class, 'index']);
 
@@ -83,3 +84,5 @@ Route::resource('/admin/sapi', AdminSapiController::class)->middleware('auth');
 #dashboard testimoni admin 
 Route::resource('/admin/testimoni', AdminTestimoniController::class)->middleware('auth');
 
+#dashboard pertanyaan admin 
+Route::resource('/admin/bantuan', AdminPertanyaanController::class)->middleware('auth');

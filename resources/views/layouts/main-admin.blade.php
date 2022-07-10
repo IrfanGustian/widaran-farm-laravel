@@ -91,6 +91,9 @@
                     <li class="">
                         <a href="/admin/testimoni"> <i class="menu-icon fa fa-list"></i>Testimoni</a>
                     </li>
+                    <li class="">
+                        <a href="/admin/bantuan"> <i class="menu-icon fa fa-list"></i>Bantuan</a>
+                    </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
