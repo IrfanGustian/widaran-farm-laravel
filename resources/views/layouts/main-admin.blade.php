@@ -121,7 +121,7 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa-user"></i>My Profile</a>
+                            <a class="nav-link" href="/admin/user/{{ auth()->user()->id }}/edit"><i class="fa fa-user"></i>My Profile</a>
 
                             <form action="/logout" method="POST">
                                 @csrf

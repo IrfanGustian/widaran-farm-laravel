@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminPertanyaanController;
 use App\Http\Controllers\AdminTransController;
 use App\Http\Controllers\AdminSapiController;
 use App\Http\Controllers\AdminTestimoniController;
+use App\Http\Controllers\AdminUser;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SapiController;
 use App\Http\Controllers\LoginController;
@@ -86,3 +87,6 @@ Route::resource('/admin/testimoni', AdminTestimoniController::class)->middleware
 
 #dashboard pertanyaan admin 
 Route::resource('/admin/bantuan', AdminPertanyaanController::class)->middleware('auth');
+
+#dashboard user
+Route::resource('/admin/user', AdminUser::class)->middleware('auth');
