@@ -11,9 +11,9 @@
                         <h3 class="font-weight-bold mt-5">
                             DATA ANDA SUDAH KAMI TERIMA
                         </h3>
-                        <a href="https://wa.me/085299682517" class="primary-btn pd-cart mt-5">lanjut Wa !!!</a>
+                        <a href="https://wa.me/{{ $user->nohp }}" class="primary-btn pd-cart mt-5">lanjut Wa !!!</a>
                         <p class="button-success mt-5">
-                            Atau <a href="https://wa.me/085299682517"> Klik Disini!</a>
+                            Atau <a href="https://wa.me/{{ $user->nohp }}"> Klik Disini!</a>
                         </p>
                     </div>
                 </div>

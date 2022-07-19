@@ -13,6 +13,7 @@ use App\Http\Controllers\TestimoniController;
 use App\Http\Controllers\TransaksiController;
 use App\Models\Sapi;
 use App\Models\Transaksi;
+use App\Models\User;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -39,7 +40,9 @@ Route::post('/pembayaran/{sapi:slug}', [TransaksiController::class, 'store']);
 
 //halaman  bantuan
 Route::get('/success', function () {
-    return view('success');
+    return view('success', [
+        'user' => User::where('id', '1')->get()->first()
+    ]);
 });
 
 
