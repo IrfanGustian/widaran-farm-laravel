@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sapi;
+use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
 class AdminSapiController extends Controller
@@ -111,6 +112,12 @@ class AdminSapiController extends Controller
     public function destroy(Sapi $sapi)
     {
         Sapi::destroy($sapi->id);
+        $teetime = Transaksi::where('sapi_id', '=', $sapi->id)->first();
+
+        if (isset($teetime)) {
+            Transaksi::destroy($teetime->id);
+        }
+
         return redirect('/admin/sapi');
     }
 }

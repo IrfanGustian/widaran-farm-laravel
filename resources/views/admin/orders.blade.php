@@ -38,25 +38,27 @@
                                         <td><span class="detail">{{ $trans->status }}</span></td>
                                         <td>
 
-                                            @if ($trans->status !== "GAGAL")
-                                                <form action="/admin/transaksi/{{ $trans->id }}" method="POST" class="d-inline">
-                                                    @csrf
-                                                    @method('put')
-                                                    @if ($trans->status === "DIPROSES")
-                                                        <button type="submit" name="status" class="badge bg-success border-0" value="SELESAI"><span>SELESAI</span></button>
-                                                        <button type="submit" name="status" class="badge bg-warning border-0" value="GAGAL"><span>GAGAL</span></button>
-                                                    @endif
-                                                </form>
-                                            @endif
+                                            @switch($trans->status)
+                                                @case("GAGAL")
+                                                    <form action="/admin/transaksi/{{ $trans->id }}" method="post" class="d-inline">
+                                                            
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button class="badge bg-danger border-0"><span>Hapus</span></button>
+                                                    </form>
+                                                    @break
+                                                @case("DIPROSES")
+                                                    <form action="/admin/transaksi/{{ $trans->id }}" method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('put')
+                                                            <button type="submit" name="status" class="badge bg-success border-0" value="SELESAI"><span>SELESAI</span></button>
+                                                            <button type="submit" name="status" class="badge bg-warning border-0" value="GAGAL"><span>GAGAL</span></button>
+                                                    </form>
+                                                    @break
+                                                @default
+                                                 <h1>-</h1>
+                                            @endswitch
 
-                                            @if ($trans->status !== "DIPROSES")
-                                                <form action="/admin/transaksi/{{ $trans->id }}" method="post" class="d-inline">
-                                                    
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button class="badge bg-danger border-0"><span>Hapus</span></button>
-                                                </form>
-                                            @endif
                                         </td>
                                     </tr>
                                     @endforeach
